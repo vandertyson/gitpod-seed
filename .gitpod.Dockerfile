@@ -6,7 +6,7 @@ USER gitpod
 # For example, the command below would install "bastet" - a command line tetris clone:
 #
 RUN sudo apt-get -q update
-RUN sudo apt-get install \
+RUN sudo apt-get -yq install \
     apt-transport-https \
     ca-certificates \
     curl \
