@@ -28,5 +28,5 @@ RUN sudo curl -L "https://github.com/docker/compose/releases/download/1.25.0/doc
 RUN sudo chmod +x /usr/local/bin/docker-compose
 RUN sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 RUN docker-compose --version
-#
+RUN sudo service docker start
 # More information: https://www.gitpod.io/docs/42_config_docker/
