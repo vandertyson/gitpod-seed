@@ -21,7 +21,7 @@ RUN sudo add-apt-repository \
    stable"
 
 RUN sudo apt-get update
-RUN sudo apt-get install docker-ce docker-ce-cli containerd.io
+RUN sudo apt-get install -yq docker-ce docker-ce-cli containerd.io
 RUN apt-cache madison docker-ce
 RUN sudo docker run hello-world
 #
