@@ -31,4 +31,4 @@ RUN docker-compose --version
 RUN sudo service docker start
 # More information: https://www.gitpod.io/docs/42_config_docker/
 RUN sudo apt-get update
-RUN sudo apt-get install erlang
+RUN sudo apt-get -yq install erlang
