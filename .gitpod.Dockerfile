@@ -11,3 +11,4 @@ RUN sudo apt install -yq rsync grsync
 RUN git clone git://github.com/erlio/vernemq.git
 RUN cd vernemq
 RUN make rel
+RUN sudo apt-get install -yq net-tools
