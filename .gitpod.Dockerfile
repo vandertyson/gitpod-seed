@@ -30,3 +30,5 @@ RUN sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 RUN docker-compose --version
 RUN sudo service docker start
 # More information: https://www.gitpod.io/docs/42_config_docker/
+RUN sudo apt-get update
+RUN sudo apt-get install erlang
