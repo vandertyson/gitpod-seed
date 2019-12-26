@@ -1,5 +1,12 @@
 FROM gitpod/workspace-full
-
 USER gitpod
-RUN sudo useradd -m -d /home/superx -ou 0 -g 0 superx
-RUN sudo usermod --password 123456a@ superx
+RUN sudo apt-get install -yq python-setuptools
+RUN sudo apt-get install -yq python-pip
+RUN git clone https://github.com/mzbench/mzbench
+RUN sudo pip install -r mzbench/requirements.txt
+RUN sudo DEBIAN_FRONTEND=noninteractive apt-get update
+RUN sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install erlang
+RUN sudo apt install -yq rsync grsync
+RUN git clone git://github.com/erlio/vernemq.git
+RUN cd vernemq; make rel
+RUN sudo apt-get install -yq net-tools
