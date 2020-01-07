@@ -10,3 +10,13 @@ RUN sudo apt install -yq rsync grsync
 RUN git clone git://github.com/erlio/vernemq.git
 RUN cd vernemq; make rel
 RUN sudo apt-get install -yq net-tools
+RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh
+RUN cd openjdk-jmh
+RUN mvn install
+RUN mvn archetype:generate \
+    -DinteractiveMode=false \
+    -DarchetypeGroupId=org.openjdk.jmh \
+    -DarchetypeArtifactId=jmh-java-benchmark-archetype \
+    -DgroupId=com.mycompany \
+    -DartifactId=benchmarks \
+    -Dversion=1.0-SNAPSHOT
