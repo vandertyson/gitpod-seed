@@ -16,7 +16,7 @@ RUN mvn --version
 RUN mkdir ~/m2-repository
 RUN sudo add-apt-repository ppa:webupd8team/java
 RUN sudo apt-get update
-RUN sudo apt-get -yq install oracle-java8-installer
+RUN sudo apt-get install -yq oracle-java8-installer
 RUN echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment
 RUN source /etc/environment
 RUN echo $JAVA_HOME
