@@ -13,10 +13,10 @@ RUN sudo apt-get install -yq net-tools
 RUN sudo apt update
 RUN sudo apt -yq install maven
 RUN mvn --version
-RUN mkdir /workspace/m2-repository
+RUN mkdir ~/m2-repository
 RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
     cd openjdk-jmh; \
-    mvn install; \
+    mvn -Dmaven.repo.local=~/m2-repository install; \
     cd ~; \
     mvn archetype:generate \
     -DinteractiveMode=false \
