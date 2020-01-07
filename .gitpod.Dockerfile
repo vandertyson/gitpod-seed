@@ -18,9 +18,9 @@ RUN sudo apt-get install software-properties-common; \
     sudo add-apt-repository ppa:webupd8team/java; \
     sudo apt-get update; \
     sudo apt-get install -yq oracle-java8-installer \
-RUN sudo echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment
-RUN source /etc/environment
-RUN echo $JAVA_HOME
+RUN sudo echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment; \
+    sudo source /etc/environment ; \
+    echo $JAVA_HOME \
 RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
     cd openjdk-jmh; \
     mvn -Dmaven.repo.local=~/m2-repository install; \
