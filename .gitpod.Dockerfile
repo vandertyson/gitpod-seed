@@ -11,7 +11,7 @@ RUN git clone git://github.com/erlio/vernemq.git
 RUN cd vernemq; make rel
 RUN sudo apt-get install -yq net-tools
 RUN sudo apt update
-RUN sudo apt install maven
+RUN sudo apt -yq install maven
 RUN  mvn --version
 RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
     cd openjdk-jmh; \
