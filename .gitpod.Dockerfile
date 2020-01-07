@@ -13,17 +13,7 @@ RUN sudo apt-get install -yq net-tools
 RUN sudo apt update
 RUN sudo apt -yq install maven
 RUN mvn --version
-RUN mkdir ~/m2-repository
-RUN sudo apt-get install software-properties-common; \
-    sudo add-apt-repository ppa:webupd8team/java; \
-    sudo apt-get update; \
-    sudo apt-get install -yq oracle-java8-installer
-RUN export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; \
-    cd ~;\
-    hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
-    cd openjdk-jmh; \
-    mvn -Dmaven.repo.local=~/m2-repository install; \
-    cd ~; \
+RUN cd ~; \
     mvn archetype:generate \
     -DinteractiveMode=false \
     -DarchetypeGroupId=org.openjdk.jmh \
