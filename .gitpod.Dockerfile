@@ -13,6 +13,7 @@ RUN sudo apt-get install -yq net-tools
 RUN sudo apt update
 RUN sudo apt -yq install maven
 RUN mvn --version
+RUN mkdir ~/m2-repository
 RUN cd ~; \
     mvn archetype:generate \
     -DinteractiveMode=false \
@@ -20,4 +21,5 @@ RUN cd ~; \
     -DarchetypeArtifactId=jmh-java-benchmark-archetype \
     -DgroupId=com.mycompany \
     -DartifactId=benchmarks \
-    -Dversion=1.0-SNAPSHOT
+    -Dversion=1.0-SNAPSHOT \
+    -Dmaven.repo.local=~/m2-repository
