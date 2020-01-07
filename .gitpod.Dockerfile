@@ -10,9 +10,10 @@ RUN sudo apt install -yq rsync grsync
 RUN git clone git://github.com/erlio/vernemq.git
 RUN cd vernemq; make rel
 RUN sudo apt-get install -yq net-tools
-RUN wget http://mirror.downloadvn.com/apache/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz
-RUN tar -xzf apache-maven-3.6.3-bin.tar.gz; export PATH=$PATH:./apache-maven-3.6.3/bin; mvn --version; \
-    hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
+RUN sudo apt update
+RUN sudo apt install maven
+RUN  mvn --version
+RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
     cd openjdk-jmh; \
     mvn install; \
     cd ~; \
