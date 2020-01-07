@@ -14,6 +14,12 @@ RUN sudo apt update
 RUN sudo apt -yq install maven
 RUN mvn --version
 RUN mkdir ~/m2-repository
+RUN sudo add-apt-repository ppa:webupd8team/java
+RUN sudo apt-get update
+RUN sudo apt-get -yq install oracle-java8-installer
+RUN echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment
+RUN source /etc/environment
+RUN echo $JAVA_HOME
 RUN hg clone http://hg.openjdk.java.net/code-tools/jmh/ openjdk-jmh; \
     cd openjdk-jmh; \
     mvn -Dmaven.repo.local=~/m2-repository install; \
