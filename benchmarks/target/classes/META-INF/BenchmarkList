@@ -1,0 +1,2 @@
+JMH S 44 com.mycompany.benchmark.mqtt.SimplePublisher S 83 com.mycompany.benchmark.mqtt.generated.SimplePublisher_sendSingleConnection_jmhTest S 20 sendSingleConnection S 10 Throughput E A 1 1 1 E E E E E E E E E E E E E M 3 11 payloadSize 1 3 128 3 qos 1 1 0 8 retained 1 4 true E E E 
+JMH S 25 com.mycompany.MyBenchmark S 53 com.mycompany.generated.MyBenchmark_writeFile_jmhTest S 9 writeFile S 10 Throughput I 1 5 A 1 1 1 E E E E E E E E E E E E E E E E E 
