@@ -23,3 +23,4 @@ RUN cd ~; \
     -DartifactId=benchmarks \
     -Dversion=1.0-SNAPSHOT \
     -Dmaven.repo.local=~/m2-repository
+RUN sudo apt -yq install virtualbox
