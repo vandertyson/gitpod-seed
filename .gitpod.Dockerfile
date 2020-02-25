@@ -24,5 +24,5 @@ RUN cd ~; \
     -Dversion=1.0-SNAPSHOT \
     -Dmaven.repo.local=~/m2-repository
 RUN sudo apt-get install -yq qemu-kvm libvirt-clients libvirt-daemon-system; \
-    sudo apt-get install --no-install-recommends -yq qemu-kvm libvirt-clients libvirt-daemon-system; \    
+    sudo apt-get install --no-install-recommends -yq qemu-kvm libvirt-clients libvirt-daemon-system \    
     
