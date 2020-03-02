@@ -31,6 +31,7 @@ RUN sudo apt update;\
     sudo apt -y install docker-ce docker-ce-cli containerd.io
 RUN sudo usermod -aG docker gitpod
 RUN newgrp docker
+RUN sudo dockerd 
 RUN docker version
 
     
