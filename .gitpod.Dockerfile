@@ -32,8 +32,7 @@ RUN sudo apt update;\
 RUN sudo usermod -aG docker gitpod
 RUN newgrp docker
 RUN sudo gpasswd -a gitpod docker
-RUN sudo systemctl enable docker
-RUN sudo nohup docker daemon -H tcp://0.0.0.0:2375 -H unix:///var/run/docker.sock;\
-    docker version
+RUN sudo systemctl start docker
+RUN docker version
 
     
