@@ -30,7 +30,6 @@ RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/
 RUN sudo apt update;\
     sudo apt -y install docker-ce docker-ce-cli containerd.io
 RUN sudo usermod -aG docker gitpod
-RUN sudo groupadd docker
 RUN su -s gitpod
 RUN sudo dockerd
 RUN sudo service docker start
