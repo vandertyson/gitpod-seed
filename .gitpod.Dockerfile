@@ -33,7 +33,7 @@ RUN sudo usermod -aG docker gitpod
 RUN newgrp docker
 RUN sudo systemctl enable docker
 RUN sudo service docker start
-RUN gpasswd -a gitpod docker
+RUN sudo gpasswd -a gitpod docker
 RUN docker version
 
     
