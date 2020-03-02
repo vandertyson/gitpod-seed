@@ -32,7 +32,6 @@ RUN sudo apt update;\
 RUN sudo usermod -aG docker gitpod
 RUN newgrp docker
 RUN sudo gpasswd -a gitpod docker
-RUN sudo systemctl start docker
-RUN docker version
+RUN sudo service docker start
 
     
