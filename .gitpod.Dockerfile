@@ -31,7 +31,9 @@ RUN sudo apt update;\
     sudo apt -y install docker-ce docker-ce-cli containerd.io
 RUN sudo usermod -aG docker gitpod
 RUN newgrp docker
-RUN sudo dockerd 
+RUN sudo chown gitpod:gitpod /home/gitpod/.docker -R
+RUN sudo chmod g+rwx /home/gitpod/.docker" -R
+RUN sudo systemctl enable docker
 RUN docker version
 
     
