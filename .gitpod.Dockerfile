@@ -22,4 +22,15 @@ RUN cd ~; \
     -Dversion=1.0-SNAPSHOT \
     -Dmaven.repo.local=~/m2-repository
 RUN sudo apt-get install -y figlet toilet
+RUN sudo apt -y update
+RUN sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
+RUN sudo apt remove docker docker-engine docker.io containerd runc
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+RUN sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+RUN sudo apt update;\
+    sudo apt -y install docker-ce docker-ce-cli containerd.io
+RUN sudo usermod -aG docker $USER;\
+    newgrp docker
+RUN docker version
+
     
