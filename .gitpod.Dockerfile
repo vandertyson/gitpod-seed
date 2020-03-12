@@ -25,7 +25,7 @@ RUN sudo apt-get install -y figlet toilet
 RUN sudo apt update
 RUN sudo apt install -y openjdk-8-jdk
 RUN sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
-
+RUN java -version
 
 
     
