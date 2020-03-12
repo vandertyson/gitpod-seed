@@ -29,9 +29,9 @@ RUN java -version
 RUN sudo apt-get update; \
     sudo apt-get install -yq postgresql postgresql-contrib; \
     sudo service postgresql start
-RUN git clone https://github.com/thingsboard/thingsboard.git
-RUN cd thingsboard
-RUN mvn clean install -Dmaven.repo.local=~/m2-repository -X
+RUN git clone https://github.com/thingsboard/thingsboard.git; \
+    cd thingsboard; \
+    mvn clean install -Dmaven.repo.local=~/m2-repository -X
 
 
     
