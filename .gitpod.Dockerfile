@@ -32,7 +32,7 @@ RUN sudo apt-get update; \
 RUN cd ~
 RUN git clone https://github.com/thingsboard/thingsboard.git
 RUN cd thingsboard
-RUN mvn clean install
+RUN mvn clean install -X
 
 
     
