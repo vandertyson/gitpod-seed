@@ -27,7 +27,7 @@ RUN sudo apt install -y openjdk-8-jdk
 RUN sudo update-alternatives --set java /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java
 RUN java -version
 RUN sudo apt-get update; \
-    sudo apt-get install postgresql postgresql-contrib; \
+    sudo apt-get install -yq postgresql postgresql-contrib; \
     sudo service postgresql start
 RUN git clone https://github.com/thingsboard/thingsboard.git; \
     cd thingsboard; \
