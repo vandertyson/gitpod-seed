@@ -31,7 +31,7 @@ RUN sudo apt-get update; \
     sudo service postgresql start
 RUN git clone https://github.com/thingsboard/thingsboard.git
 RUN cd thingsboard
-RUN mvn clean install -Dmaven.repo.local=~/m2-repository
+RUN mvn clean install -Dmaven.repo.local=~/m2-repository -X
 
 
     
