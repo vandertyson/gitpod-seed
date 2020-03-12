@@ -22,7 +22,10 @@ RUN cd ~; \
     -Dversion=1.0-SNAPSHOT \
     -Dmaven.repo.local=~/m2-repository
 RUN sudo apt-get install -y figlet toilet
-RUN docker version
+RUN sudo apt update
+RUN sudo apt install openjdk-8-jdk
+RUN sudo update-alternatives --config java
+RUN java -version
 
 
 
