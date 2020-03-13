@@ -33,6 +33,4 @@ RUN git clone https://github.com/thingsboard/thingsboard.git; \
     git checkout release-2.4
     cd thingsboard; \
     mvn clean install -Dmaven.repo.local=~/m2-repository -Dlicense.skip=true -DskipTests=True --fail-at-end
-
-
     
