@@ -32,7 +32,7 @@ RUN sudo apt-get update; \
 RUN git clone https://github.com/thingsboard/thingsboard.git; \    
     cd thingsboard; \
     git checkout release-2.4
-RUN RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
+RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
              && sdk install java 8.0.181-zulu \
              && sdk default java 8.0.181-zulu"
     
