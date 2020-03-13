@@ -30,8 +30,9 @@ RUN sudo apt-get update; \
     sudo apt-get install -yq postgresql postgresql-contrib; \
     sudo service postgresql start
 RUN git clone https://github.com/thingsboard/thingsboard.git; \
+    git checkout release-2.4
     cd thingsboard; \
-    mvn clean install -Dmaven.repo.local=~/m2-repository -Dlicense.skip=true -DskipTests=True
+    mvn clean install -Dmaven.repo.local=~/m2-repository -Dlicense.skip=true -DskipTests=True --fail-at-end
 
 
     
