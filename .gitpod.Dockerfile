@@ -33,6 +33,7 @@ RUN git clone https://github.com/thingsboard/thingsboard.git; \
     cd thingsboard; \
     git checkout release-2.4
 RUN bash -c ". /home/gitpod/.sdkman/bin/sdkman-init.sh \
-             && sdk install java 8u141-oracle \
+             && sdk list java \
+             && sdk install java 8u144-zulu \
              && sdk default java 8u141-oracle"
     
