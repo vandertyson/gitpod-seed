@@ -1,0 +1,127 @@
+---
+# Source: stan/templates/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: RELEASE-NAME-config
+  labels:
+    app: RELEASE-NAME
+    chart: stan-0.4.2
+data:
+  stan.conf: |-
+    http: 8222
+
+    streaming {
+      ns: 
+      id: RELEASE-NAME
+      store: "file"
+      dir: /data/stan/store
+    }
+---
+# Source: stan/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: RELEASE-NAME
+  labels:
+    app: RELEASE-NAME
+    chart: stan-0.4.2
+spec:
+  selector:
+    app: RELEASE-NAME
+  clusterIP: None
+  ports:
+  - name: metrics
+    port: 7777
+---
+# Source: stan/templates/statefulset.yaml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: RELEASE-NAME
+  labels:
+    app: RELEASE-NAME
+    chart: stan-0.4.2
+spec:
+  selector:
+    matchLabels:
+      app: RELEASE-NAME
+  replicas: 1
+
+  # NATS Streaming service name
+  serviceName: RELEASE-NAME
+
+  template:
+    metadata:
+      annotations:
+        prometheus.io/path: /metrics
+        prometheus.io/port: "7777"
+        prometheus.io/scrape: "true"
+      labels:
+        app: RELEASE-NAME
+        chart: stan-0.4.2
+    spec:
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - configMap:
+          name: RELEASE-NAME-config
+        name: config-volume
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - RELEASE-NAME
+            topologyKey: kubernetes.io/hostname
+      containers:
+        - name: stan
+          image: nats-streaming:0.17.0
+          args:
+          - -sc
+          - /etc/stan-config/stan.conf
+          env:
+          - name: POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+          - name: POD_NAMESPACE
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.namespace
+          ports:
+          - containerPort: 8222
+            name: monitor
+          - containerPort: 7777
+            name: metrics
+          volumeMounts:
+          - name: config-volume
+            mountPath: /etc/stan-config
+          - name: RELEASE-NAME-pvc
+            mountPath: /data/stan
+        
+        - name: metrics
+          image: synadia/prometheus-nats-exporter:0.6.0
+          args:
+          - -connz
+          - -routez
+          - -subz
+          - -varz
+          - -channelz
+          - -serverz
+          - http://localhost:8222/
+          ports:
+          - containerPort: 7777
+            name: metrics
+        
+  volumeClaimTemplates:
+  - metadata:
+      name: RELEASE-NAME-pvc
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
