@@ -2140,6 +2140,16 @@ public final class Messages {
      * <code>.grpc.testing.BoolValue expect_compressed = 8;</code>
      */
     io.grpc.benchmarks.proto.Messages.BoolValueOrBuilder getExpectCompressedOrBuilder();
+
+    /**
+     * <pre>
+     * request ID
+     * </pre>
+     *
+     * <code>int64 reID = 9;</code>
+     * @return The reID.
+     */
+    long getReID();
   }
   /**
    * <pre>
@@ -2262,6 +2272,11 @@ public final class Messages {
                 expectCompressed_ = subBuilder.buildPartial();
               }
 
+              break;
+            }
+            case 72: {
+
+              reID_ = input.readInt64();
               break;
             }
             default: {
@@ -2533,6 +2548,21 @@ public final class Messages {
       return getExpectCompressed();
     }
 
+    public static final int REID_FIELD_NUMBER = 9;
+    private long reID_;
+    /**
+     * <pre>
+     * request ID
+     * </pre>
+     *
+     * <code>int64 reID = 9;</code>
+     * @return The reID.
+     */
+    @java.lang.Override
+    public long getReID() {
+      return reID_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -2570,6 +2600,9 @@ public final class Messages {
       }
       if (expectCompressed_ != null) {
         output.writeMessage(8, getExpectCompressed());
+      }
+      if (reID_ != 0L) {
+        output.writeInt64(9, reID_);
       }
       unknownFields.writeTo(output);
     }
@@ -2611,6 +2644,10 @@ public final class Messages {
       if (expectCompressed_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(8, getExpectCompressed());
+      }
+      if (reID_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(9, reID_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2654,6 +2691,8 @@ public final class Messages {
         if (!getExpectCompressed()
             .equals(other.getExpectCompressed())) return false;
       }
+      if (getReID()
+          != other.getReID()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -2691,6 +2730,9 @@ public final class Messages {
         hash = (37 * hash) + EXPECT_COMPRESSED_FIELD_NUMBER;
         hash = (53 * hash) + getExpectCompressed().hashCode();
       }
+      hash = (37 * hash) + REID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReID());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -2860,6 +2902,8 @@ public final class Messages {
           expectCompressed_ = null;
           expectCompressedBuilder_ = null;
         }
+        reID_ = 0L;
+
         return this;
       }
 
@@ -2910,6 +2954,7 @@ public final class Messages {
         } else {
           result.expectCompressed_ = expectCompressedBuilder_.build();
         }
+        result.reID_ = reID_;
         onBuilt();
         return result;
       }
@@ -2981,6 +3026,9 @@ public final class Messages {
         }
         if (other.hasExpectCompressed()) {
           mergeExpectCompressed(other.getExpectCompressed());
+        }
+        if (other.getReID() != 0L) {
+          setReID(other.getReID());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -3870,6 +3918,49 @@ public final class Messages {
         }
         return expectCompressedBuilder_;
       }
+
+      private long reID_ ;
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 9;</code>
+       * @return The reID.
+       */
+      @java.lang.Override
+      public long getReID() {
+        return reID_;
+      }
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 9;</code>
+       * @param value The reID to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReID(long value) {
+        
+        reID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReID() {
+        
+        reID_ = 0L;
+        onChanged();
+        return this;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3995,6 +4086,16 @@ public final class Messages {
      */
     com.google.protobuf.ByteString
         getOauthScopeBytes();
+
+    /**
+     * <pre>
+     * request ID
+     * </pre>
+     *
+     * <code>int64 reID = 4;</code>
+     * @return The reID.
+     */
+    long getReID();
   }
   /**
    * <pre>
@@ -4070,6 +4171,11 @@ public final class Messages {
               java.lang.String s = input.readStringRequireUtf8();
 
               oauthScope_ = s;
+              break;
+            }
+            case 32: {
+
+              reID_ = input.readInt64();
               break;
             }
             default: {
@@ -4236,6 +4342,21 @@ public final class Messages {
       }
     }
 
+    public static final int REID_FIELD_NUMBER = 4;
+    private long reID_;
+    /**
+     * <pre>
+     * request ID
+     * </pre>
+     *
+     * <code>int64 reID = 4;</code>
+     * @return The reID.
+     */
+    @java.lang.Override
+    public long getReID() {
+      return reID_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4259,6 +4380,9 @@ public final class Messages {
       if (!getOauthScopeBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, oauthScope_);
       }
+      if (reID_ != 0L) {
+        output.writeInt64(4, reID_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -4277,6 +4401,10 @@ public final class Messages {
       }
       if (!getOauthScopeBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, oauthScope_);
+      }
+      if (reID_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, reID_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4302,6 +4430,8 @@ public final class Messages {
           .equals(other.getUsername())) return false;
       if (!getOauthScope()
           .equals(other.getOauthScope())) return false;
+      if (getReID()
+          != other.getReID()) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -4321,6 +4451,9 @@ public final class Messages {
       hash = (53 * hash) + getUsername().hashCode();
       hash = (37 * hash) + OAUTH_SCOPE_FIELD_NUMBER;
       hash = (53 * hash) + getOauthScope().hashCode();
+      hash = (37 * hash) + REID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getReID());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4468,6 +4601,8 @@ public final class Messages {
 
         oauthScope_ = "";
 
+        reID_ = 0L;
+
         return this;
       }
 
@@ -4501,6 +4636,7 @@ public final class Messages {
         }
         result.username_ = username_;
         result.oauthScope_ = oauthScope_;
+        result.reID_ = reID_;
         onBuilt();
         return result;
       }
@@ -4559,6 +4695,9 @@ public final class Messages {
         if (!other.getOauthScope().isEmpty()) {
           oauthScope_ = other.oauthScope_;
           onChanged();
+        }
+        if (other.getReID() != 0L) {
+          setReID(other.getReID());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4937,6 +5076,49 @@ public final class Messages {
   checkByteStringIsUtf8(value);
         
         oauthScope_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long reID_ ;
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 4;</code>
+       * @return The reID.
+       */
+      @java.lang.Override
+      public long getReID() {
+        return reID_;
+      }
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 4;</code>
+       * @param value The reID to set.
+       * @return This builder for chaining.
+       */
+      public Builder setReID(long value) {
+        
+        reID_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * request ID
+       * </pre>
+       *
+       * <code>int64 reID = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearReID() {
+        
+        reID_ = 0L;
         onChanged();
         return this;
       }
@@ -11001,7 +11183,7 @@ public final class Messages {
       "lue\022\r\n\005value\030\001 \001(\010\"@\n\007Payload\022\'\n\004type\030\001 " +
       "\001(\0162\031.grpc.testing.PayloadType\022\014\n\004body\030\002" +
       " \001(\014\"+\n\nEchoStatus\022\014\n\004code\030\001 \001(\005\022\017\n\007mess" +
-      "age\030\002 \001(\t\"\316\002\n\rSimpleRequest\0220\n\rresponse_" +
+      "age\030\002 \001(\t\"\334\002\n\rSimpleRequest\0220\n\rresponse_" +
       "type\030\001 \001(\0162\031.grpc.testing.PayloadType\022\025\n" +
       "\rresponse_size\030\002 \001(\005\022&\n\007payload\030\003 \001(\0132\025." +
       "grpc.testing.Payload\022\025\n\rfill_username\030\004 " +
@@ -11009,29 +11191,30 @@ public final class Messages {
       "e_compressed\030\006 \001(\0132\027.grpc.testing.BoolVa" +
       "lue\0221\n\017response_status\030\007 \001(\0132\030.grpc.test" +
       "ing.EchoStatus\0222\n\021expect_compressed\030\010 \001(" +
-      "\0132\027.grpc.testing.BoolValue\"_\n\016SimpleResp" +
-      "onse\022&\n\007payload\030\001 \001(\0132\025.grpc.testing.Pay" +
-      "load\022\020\n\010username\030\002 \001(\t\022\023\n\013oauth_scope\030\003 " +
-      "\001(\t\"w\n\031StreamingInputCallRequest\022&\n\007payl" +
-      "oad\030\001 \001(\0132\025.grpc.testing.Payload\0222\n\021expe" +
-      "ct_compressed\030\002 \001(\0132\027.grpc.testing.BoolV" +
-      "alue\"=\n\032StreamingInputCallResponse\022\037\n\027ag" +
-      "gregated_payload_size\030\001 \001(\005\"d\n\022ResponseP" +
-      "arameters\022\014\n\004size\030\001 \001(\005\022\023\n\013interval_us\030\002" +
-      " \001(\005\022+\n\ncompressed\030\003 \001(\0132\027.grpc.testing." +
-      "BoolValue\"\350\001\n\032StreamingOutputCallRequest" +
-      "\0220\n\rresponse_type\030\001 \001(\0162\031.grpc.testing.P" +
-      "ayloadType\022=\n\023response_parameters\030\002 \003(\0132" +
-      " .grpc.testing.ResponseParameters\022&\n\007pay" +
-      "load\030\003 \001(\0132\025.grpc.testing.Payload\0221\n\017res" +
-      "ponse_status\030\007 \001(\0132\030.grpc.testing.EchoSt" +
-      "atus\"E\n\033StreamingOutputCallResponse\022&\n\007p" +
-      "ayload\030\001 \001(\0132\025.grpc.testing.Payload\"3\n\017R" +
-      "econnectParams\022 \n\030max_reconnect_backoff_" +
-      "ms\030\001 \001(\005\"3\n\rReconnectInfo\022\016\n\006passed\030\001 \001(" +
-      "\010\022\022\n\nbackoff_ms\030\002 \003(\005*\037\n\013PayloadType\022\020\n\014" +
-      "COMPRESSABLE\020\000B$\n\030io.grpc.benchmarks.pro" +
-      "toB\010Messagesb\006proto3"
+      "\0132\027.grpc.testing.BoolValue\022\014\n\004reID\030\t \001(\003" +
+      "\"m\n\016SimpleResponse\022&\n\007payload\030\001 \001(\0132\025.gr" +
+      "pc.testing.Payload\022\020\n\010username\030\002 \001(\t\022\023\n\013" +
+      "oauth_scope\030\003 \001(\t\022\014\n\004reID\030\004 \001(\003\"w\n\031Strea" +
+      "mingInputCallRequest\022&\n\007payload\030\001 \001(\0132\025." +
+      "grpc.testing.Payload\0222\n\021expect_compresse" +
+      "d\030\002 \001(\0132\027.grpc.testing.BoolValue\"=\n\032Stre" +
+      "amingInputCallResponse\022\037\n\027aggregated_pay" +
+      "load_size\030\001 \001(\005\"d\n\022ResponseParameters\022\014\n" +
+      "\004size\030\001 \001(\005\022\023\n\013interval_us\030\002 \001(\005\022+\n\ncomp" +
+      "ressed\030\003 \001(\0132\027.grpc.testing.BoolValue\"\350\001" +
+      "\n\032StreamingOutputCallRequest\0220\n\rresponse" +
+      "_type\030\001 \001(\0162\031.grpc.testing.PayloadType\022=" +
+      "\n\023response_parameters\030\002 \003(\0132 .grpc.testi" +
+      "ng.ResponseParameters\022&\n\007payload\030\003 \001(\0132\025" +
+      ".grpc.testing.Payload\0221\n\017response_status" +
+      "\030\007 \001(\0132\030.grpc.testing.EchoStatus\"E\n\033Stre" +
+      "amingOutputCallResponse\022&\n\007payload\030\001 \001(\013" +
+      "2\025.grpc.testing.Payload\"3\n\017ReconnectPara" +
+      "ms\022 \n\030max_reconnect_backoff_ms\030\001 \001(\005\"3\n\r" +
+      "ReconnectInfo\022\016\n\006passed\030\001 \001(\010\022\022\n\nbackoff" +
+      "_ms\030\002 \003(\005*\037\n\013PayloadType\022\020\n\014COMPRESSABLE" +
+      "\020\000B$\n\030io.grpc.benchmarks.protoB\010Messages" +
+      "b\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11060,13 +11243,13 @@ public final class Messages {
     internal_static_grpc_testing_SimpleRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_grpc_testing_SimpleRequest_descriptor,
-        new java.lang.String[] { "ResponseType", "ResponseSize", "Payload", "FillUsername", "FillOauthScope", "ResponseCompressed", "ResponseStatus", "ExpectCompressed", });
+        new java.lang.String[] { "ResponseType", "ResponseSize", "Payload", "FillUsername", "FillOauthScope", "ResponseCompressed", "ResponseStatus", "ExpectCompressed", "ReID", });
     internal_static_grpc_testing_SimpleResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
     internal_static_grpc_testing_SimpleResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_grpc_testing_SimpleResponse_descriptor,
-        new java.lang.String[] { "Payload", "Username", "OauthScope", });
+        new java.lang.String[] { "Payload", "Username", "OauthScope", "ReID", });
     internal_static_grpc_testing_StreamingInputCallRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_grpc_testing_StreamingInputCallRequest_fieldAccessorTable = new
